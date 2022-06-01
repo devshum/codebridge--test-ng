@@ -1,0 +1,8 @@
+@use '../../../assets/styles/abstracts/variables' as styles;
+
+body {
+  font-family: styles.$font-montserrat;
+  font-size: styles.$default-font-size;
+  font-weight: 400;
+  color: styles.$gray;
+}
