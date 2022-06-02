@@ -1,3 +1,42 @@
+@use '../../../../assets/styles/abstracts/variables' as styles;
+
 :host {
   display: block;
+}
+
+.button {
+  color: inherit;
+  background: unset;
+  border: unset;
+  font-size: inherit;
+  font-family: inherit;
+  line-height: inherit;
+  font-weight: 700;
+  cursor: pointer;
+
+  &:hover {
+    .button {
+      &__arr-right {
+        transform: translateX(0.4rem);
+      }
+    
+      &__arr-left {
+        transform: translateX(-0.4rem);
+      }
+    }
+  }
+
+  &__arr-right,
+  &__arr-left {
+    display: inline-block;
+    transition: styles.$transition;
+  }
+
+  &__arr-right {
+    margin-left: 0.6rem;
+  }
+
+  &__arr-left {
+    margin-right: 0.6rem;
+  }
 }

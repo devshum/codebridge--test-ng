@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ButtonComponent } from './components/button/button.component';
+import { SvgModule } from '../module-svg/svg.module';
 
 
 
@@ -9,7 +10,8 @@ import { ButtonComponent } from './components/button/button.component';
     ButtonComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    SvgModule
   ],
   exports: [
     ButtonComponent

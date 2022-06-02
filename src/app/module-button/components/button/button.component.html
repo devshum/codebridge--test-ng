@@ -1,1 +1,5 @@
-<p>button works!</p>
+<button class="button" type="button">
+  <i class="button__arr-left" [inlineSVG]="'arrow-left.svg'" *ngIf="mode === 'left'"></i>
+  <span>{{ title }}</span>
+  <i class="button__arr-right" [inlineSVG]="'arrow-right.svg'" *ngIf="mode === 'right'"></i>
+</button>
