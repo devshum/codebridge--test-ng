@@ -3,6 +3,17 @@
 body {
   font-family: styles.$font-montserrat;
   font-size: styles.$default-font-size;
-  font-weight: 400;
+  line-height: styles.$default-line-height;
+  font-weight: styles.$default-font-weight;
   color: styles.$gray;
+}
+
+.heading-2 {
+  font-size: 2.4rem;
+  line-height: 2.9rem;
+  font-weight: styles.$default-font-weight;
+}
+
+.heading-4 {
+  line-height: 2rem;
 }

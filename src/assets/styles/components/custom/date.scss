@@ -1,0 +1,14 @@
+@use '../../../../assets/styles/abstracts/variables' as styles;
+
+.date {
+  color: rgba(styles.$gray, 0.6);
+  margin-bottom: 2.4rem;
+
+  svg {
+    transform: translateY(0.1rem);
+  }
+
+  span {
+    margin-left: 0.9rem;
+  }
+}

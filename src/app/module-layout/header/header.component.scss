@@ -1,3 +1,11 @@
+@use '../../../assets/styles/abstracts/variables' as styles;
+
 :host {
   display: block;
+}
+
+.header {
+  height: 8.2rem;
+  background-color: styles.$gray-4;
+  border-bottom: 0.2rem solid rgba(0, 0, 0, 0.06);
 }

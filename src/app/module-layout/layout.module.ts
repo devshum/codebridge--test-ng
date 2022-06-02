@@ -4,7 +4,7 @@ import { RouterModule } from '@angular/router';
 import { LayoutComponent } from './layout/layout.component';
 import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
-
+import { SvgModule } from '../module-svg/svg.module';
 
 
 
@@ -16,7 +16,8 @@ import { HeaderComponent } from './header/header.component';
   ],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    SvgModule
   ],
   exports: [
     LayoutComponent

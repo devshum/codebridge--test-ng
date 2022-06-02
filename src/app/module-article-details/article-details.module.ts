@@ -2,6 +2,7 @@ import { ArticleDetailsComponent } from './article-details/article-details.compo
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ArticlesRoutingModule } from './article-details-routing.module';
+import { ButtonModule } from '../module-button/button.module';
 
 
 
@@ -11,7 +12,8 @@ import { ArticlesRoutingModule } from './article-details-routing.module';
   ],
   imports: [
     CommonModule,
-    ArticlesRoutingModule
+    ArticlesRoutingModule,
+    ButtonModule
   ]
 })
 export class ArticleDetailsModule { }

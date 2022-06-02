@@ -1,17 +1,20 @@
 // FONTS
 $font-montserrat: 'Montserrat', sans-serif;
 $default-font-size: 1.6rem;
+$default-line-height: 150%;
+$default-font-weight: 400;
 
 // COLORS
 $gray: #363636;
 $gray-2: #575757;
 $gray-3: #EAEAEA;
+$gray-4: #FCFCFC;
 
 $white: #fff;
 $black: #000;
 
 // BOX SHADOW
-$shadow: 0px 0.8rem 2.4rem rgba(0, 0, 0, 0.05);
+$shadow: 0 0.8rem 2.4rem rgba(0, 0, 0, 0.05);
 
 // BORDER RADIUS
 $radius: 0.5rem;

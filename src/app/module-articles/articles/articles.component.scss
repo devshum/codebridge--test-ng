@@ -5,5 +5,7 @@
 .articles {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 45px;
+  gap: 4.5rem;
+
+  padding: 5rem 0 6.3rem;
 }
