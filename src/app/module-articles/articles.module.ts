@@ -6,6 +6,7 @@ import { CardComponent } from './card/card.component';
 import { SearchComponent } from './search/search.component';
 import { MatCardModule } from '@angular/material/card';
 import { ButtonModule } from '../module-button/button.module';
+import { SvgModule } from '../module-svg/svg.module';
 
 
 
@@ -19,7 +20,8 @@ import { ButtonModule } from '../module-button/button.module';
     CommonModule,
     ArticlesRoutingModule,
     MatCardModule,
-    ButtonModule
+    ButtonModule,
+    SvgModule
   ]
 })
 export class ArticlesModule { }
