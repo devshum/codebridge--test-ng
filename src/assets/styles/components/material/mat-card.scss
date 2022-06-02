@@ -2,10 +2,14 @@
 
 .card {
   &.mat-card {
+    display: flex;
+    flex-direction: column;
+
     font-family: styles.$font-montserrat;
     border-radius: 0.5rem;
     padding: unset;
     cursor: pointer;
+    height: 100%;
     transition: styles.$transition;
 
     &:hover {
@@ -37,9 +41,17 @@
     }
 
     &-content {
+      display: flex;
+      flex-direction: column;
+
       padding: 2.5rem;
+      height: 100%;
       font-size: styles.$default-font-size;
       line-height: styles.$default-line-height;
+
+      .content {
+        margin-top: auto;
+      }
 
       .heading-2 {
         margin-bottom: 2rem;

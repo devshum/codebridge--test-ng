@@ -1,3 +1,10 @@
+@use '../../../assets/styles/abstracts/variables' as styles;
+
 :host {
   display: block;
+}
+
+.count {
+  padding-bottom: 0.5rem;
+  border-bottom: 0.1rem solid styles.$gray-3;
 }
