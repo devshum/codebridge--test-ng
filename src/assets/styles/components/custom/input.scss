@@ -2,6 +2,7 @@
 
 .input {
   display: inline-flex;
+  overflow: hidden;
 
   border: 0.1rem solid styles.$gray-3;
   box-shadow: 0 0.8rem 2.4rem rgba(0, 0, 0, 0.05);
