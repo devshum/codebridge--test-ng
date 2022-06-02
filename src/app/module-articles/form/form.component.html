@@ -1,0 +1,15 @@
+<form #form="ngForm"
+      class="form" 
+      autocomplete="off"
+      (keyup)="submit(form)">
+  <h4 class="form__title heading-4">Filter by keywords</h4>
+
+  <div class="input">
+    <i class="input__icon" [inlineSVG]="'glass.svg'"></i>
+    <input class="input__field" 
+           ngModel 
+           name="search"
+           type="text" 
+           placeholder="Search...">
+  </div>
+</form>
