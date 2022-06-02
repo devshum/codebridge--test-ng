@@ -2,9 +2,23 @@
 
 .card {
   &.mat-card {
+    display: flex;
+    flex-direction: column;
+
     font-family: styles.$font-montserrat;
     border-radius: 0.5rem;
     padding: unset;
+    cursor: pointer;
+    height: 100%;
+    transition: styles.$transition;
+
+    &:hover {
+      transform: scale(1.01);
+
+      &:not([class*=mat-elevation-z]) {
+        box-shadow: 0 0.8rem 2.8rem rgba(0, 0, 0, 0.03);
+      }
+    }
 
     &:not([class*=mat-elevation-z]) {
       border: 0.1rem solid styles.$gray-3;
@@ -27,9 +41,17 @@
     }
 
     &-content {
+      display: flex;
+      flex-direction: column;
+
       padding: 2.5rem;
+      height: 100%;
       font-size: styles.$default-font-size;
       line-height: styles.$default-line-height;
+
+      .content {
+        margin-top: auto;
+      }
 
       .heading-2 {
         margin-bottom: 2rem;

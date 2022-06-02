@@ -1,0 +1,25 @@
+@use '../../../../assets/styles/abstracts/variables' as styles;
+
+.input {
+  display: inline-flex;
+
+  border: 0.1rem solid styles.$gray-3;
+  box-shadow: 0 0.8rem 2.4rem rgba(0, 0, 0, 0.05);
+  border-radius: 0.5rem;
+
+  &__icon {
+    display: inline-flex;
+    align-items: center;
+    margin: 0 2rem;
+  }
+
+  &__field {
+    height: 5rem;
+    width: 54rem;
+    border: unset;
+    outline: none;
+    font-size: inherit;
+    font-family: inherit;
+    color: styles.$gray-2;
+  }
+}
