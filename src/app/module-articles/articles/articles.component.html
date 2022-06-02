@@ -4,11 +4,6 @@
   <app-count class="articles__count"></app-count>
 
   <div class="articles__cards">
-    <app-card></app-card>
-    <app-card></app-card>
-    <app-card></app-card>
-    <app-card></app-card>
-    <app-card></app-card>
-    <app-card></app-card>
+    <app-card *ngFor="let article of articles$ | async" [article]="article"></app-card>
   </div>
 </section>

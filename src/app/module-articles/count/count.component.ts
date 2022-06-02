@@ -1,4 +1,6 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { ArticlesDashboardService } from './../../core/services/articles-dashboard.service';
+import { Component, OnInit, ChangeDetectionStrategy, Input } from '@angular/core';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-count',
@@ -7,10 +9,13 @@ import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CountComponent implements OnInit {
-
-  constructor() { }
+  public count$: Observable<number>
+  constructor(
+    private _articlesService: ArticlesDashboardService
+  ) { }
 
   ngOnInit(): void {
+    this.count$ = this._articlesService.getCount();
   }
 
 }
