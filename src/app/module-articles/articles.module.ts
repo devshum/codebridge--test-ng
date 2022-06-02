@@ -9,6 +9,7 @@ import { ButtonModule } from '../module-button/button.module';
 import { SvgModule } from '../module-svg/svg.module';
 import { CountComponent } from './count/count.component';
 import { FormsModule }   from '@angular/forms';
+import { LazyLoadImageModule } from 'ng-lazyload-image';
 
 
 
@@ -25,7 +26,8 @@ import { FormsModule }   from '@angular/forms';
     MatCardModule,
     ButtonModule,
     SvgModule,
-    FormsModule
+    FormsModule,
+    LazyLoadImageModule
   ]
 })
 export class ArticlesModule { }

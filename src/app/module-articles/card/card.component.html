@@ -1,6 +1,8 @@
 <mat-card class="card">
-  <img mat-card-image 
-       [src]="article.imageUrl" 
+  <img class="image"
+       mat-card-image 
+       [lazyLoad]="article.imageUrl" 
+       [defaultImage]="'../../../../assets/img/lazy-image.jpg'"
        [alt]="'Photo of' + article.title">
 
   <mat-card-content>
