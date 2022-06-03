@@ -12,6 +12,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { LazyLoadImageModule } from 'ng-lazyload-image';
 import { HighlightDirective } from '../core/directives/highlight.directive';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { CardSkeletonComponent } from './components/card-skeleton/card-skeleton.component';
 
 
 
@@ -21,7 +22,8 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     CardComponent,
     FormComponent,
     CountComponent,
-    HighlightDirective
+    HighlightDirective,
+    CardSkeletonComponent
   ],
   imports: [
     CommonModule,

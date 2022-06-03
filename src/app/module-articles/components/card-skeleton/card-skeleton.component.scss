@@ -1,0 +1,40 @@
+@use '../../../../assets/styles/abstracts/mixins' as mixins;
+
+:host {
+  display: block;
+}
+
+.card-skeleton {
+  display: grid;
+  grid-template-rows: 21.7rem repeat(2, 2rem) 1fr 2rem;
+  row-gap: 2.4rem;
+
+  height: 50rem;
+  padding: 2.5rem;
+  position: relative;
+
+  @include mixins.card('border');
+}
+
+.card-skeleton span {
+  background-color: rgba(0, 0, 0, 0.1);
+  animation: skeleton 1s 0.5s infinite alternate;
+}
+
+.card-skeleton p {
+  background-color: rgba(0, 0, 0, 0.1);
+  animation: skeleton 1s infinite alternate;
+
+  &:nth-child(1) {
+    width: 40%;
+  }
+
+  &:nth-child(2) {
+    width: 60%;
+  }
+
+  &:last-child {
+    grid-row: 5;
+    width: 30%;
+  }
+}
