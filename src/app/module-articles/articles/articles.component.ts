@@ -1,7 +1,6 @@
 import { ArticlesDashboardService } from './../../core/services/articles-dashboard.service';
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { Observable } from 'rxjs';
-import { pluck, tap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-articles',
@@ -10,6 +9,7 @@ import { pluck, tap } from 'rxjs/operators';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ArticlesComponent implements OnInit {
+  public searchFragment: string;
   public articles$: Observable<any>;
   public count: number;
   private _limit = 6;
@@ -26,8 +26,23 @@ export class ArticlesComponent implements OnInit {
         start: this._start 
       },
     );
+  }
 
-    this.articles$.subscribe(res => console.log(res))
+  public onSearch(event: string): void {
+    this.searchFragment = event;
+    this.articles$ = this._articlesService
+    .getArticles(
+      { 
+        limit: this._limit, 
+        start: this._start,
+        title: event,
+        summary: event
+      },
+    );
+  }
+
+  public trackItem(index: number, item: any): number {
+    return index;
   }
 
 }
