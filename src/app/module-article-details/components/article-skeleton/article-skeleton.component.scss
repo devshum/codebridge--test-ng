@@ -1,0 +1,77 @@
+@use '../../../../assets/styles/abstracts/variables' as styles;
+@use '../../../../assets/styles/abstracts/mixins.scss' as mixins;
+
+:host {
+  display: block;
+}
+
+.article-skeleton {
+  &__top {
+    display: grid;
+  }
+
+  &__img {
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    animation: skeleton 1s 0.5s infinite alternate;
+    height: 24.5rem;
+  }
+
+  &__img,
+  &__container {
+    grid-row: 1;
+    grid-column: 1 / -1;
+  }
+
+  &__container {
+    display: flex;
+    justify-content: center;
+
+    align-self: end;
+    background-color: styles.$white;
+    padding: 3.5rem 0;
+    text-align: center;
+    border-top-left-radius: 0.5rem;
+    border-top-right-radius: 0.5rem;
+
+    border: 0.1rem solid styles.$gray-3;
+    border-bottom: unset;
+    z-index: 1;
+
+    .heading-2 {
+      background-color: rgba(0, 0, 0, 0.3);
+      animation: skeleton 1s 0.5s infinite alternate;
+      width: 70%;
+    }
+
+  }
+
+  &__content {
+    padding: 5rem 7.5rem;
+    border: 0.1rem solid styles.$gray-3;
+    border-top: unset;
+    border-bottom-left-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
+
+    @include mixins.card('no-border');
+
+    p {
+      background-color: rgba(0, 0, 0, 0.3);
+      animation: skeleton 1s 0.5s infinite alternate;
+      height: 2rem;
+
+      &:not(:last-child) {
+        margin-bottom: 2rem;
+      }
+    }
+  }
+
+  &__btn {
+    display: block;
+    width: 20%;
+    height: 2rem;
+    margin: 3.5rem 7.5rem 0;
+    background-color: rgba(0, 0, 0, 0.3);
+    animation: skeleton 1s 0.5s infinite alternate;
+  }
+}

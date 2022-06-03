@@ -5,7 +5,7 @@
 
     <app-count (count)="count = $event" class="articles__count"></app-count>
 
-    <div class="articles__cards" *ngIf="articles$ | async as articles; else loading">
+    <div class="articles__cards" *ngIf="articles$ | async as articles; else skeleton">
       <ng-container *ngIf="articles.length > 0; else noResults">
         <app-card [highlightedFragment]="searchFragment" 
                   *ngFor="let article of articles; trackBy: trackArticle" 
@@ -14,7 +14,7 @@
       </ng-container>
     </div>
 
-    <ng-template #loading>
+    <ng-template #skeleton>
       <div class="articles__cards">
         <app-card-skeleton *ngFor="let skeleton of skeletons; trackBy: trackSkeleton" ></app-card-skeleton>
       </div>
