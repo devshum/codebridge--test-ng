@@ -28,4 +28,8 @@ export class ArticlesDashboardService {
   public getCount(): Observable<number> {
     return this._http.get<number>(`${this._apiUrl}/articles/count`)
   }
+
+  public getArticle(id: string): Observable<Article> {
+    return this._http.get<Article>(`${this._apiUrl}/articles/${id}`)
+  }
 }

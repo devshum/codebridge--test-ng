@@ -1,4 +1,4 @@
-<mat-card class="card">
+<mat-card class="card" (click)="openArticleDetails(article.id)">
   <img class="image"
        mat-card-image 
        [lazyLoad]="article.imageUrl" 

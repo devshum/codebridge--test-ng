@@ -1,0 +1,9 @@
+@use '../../../assets/styles/abstracts/variables' as styles;
+
+@mixin card($border) {
+  @if $border == 'border' {
+    border: 0.1rem solid styles.$gray-3;
+  }
+
+  box-shadow: 0 0.8rem 2.4rem rgb(0 0 0 / 5%);
+}

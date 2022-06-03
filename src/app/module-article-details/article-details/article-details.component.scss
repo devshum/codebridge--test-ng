@@ -1,3 +1,54 @@
+@use '../../../assets/styles/abstracts/variables' as styles;
+@use '../../../assets/styles/abstracts/mixins' as mixins;
+
 :host {
   display: block;
 }
+
+.article {
+
+  &__top {
+    display: grid;
+  }
+
+  &__img {
+    width: 100%;
+    object-fit: cover;
+    height: 24.5rem;
+  }
+
+  &__img,
+  &__container {
+    grid-row: 1;
+    grid-column: 1 / -1;
+  }
+
+  &__container {
+    align-self: end;
+    background-color: styles.$white;
+    padding: 3.5rem 0;
+    text-align: center;
+    border-top-left-radius: 0.5rem;
+    border-top-right-radius: 0.5rem;
+
+    border: 0.1rem solid styles.$gray-3;
+    border-bottom: unset;
+
+  }
+
+  &__content {
+    padding: 1.6rem 7.5rem 5rem;
+    border: 0.1rem solid styles.$gray-3;
+    border-top: unset;
+    border-bottom-left-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
+
+    @include mixins.card('no-border');
+  }
+
+  &__btn {
+    margin: 3.5rem 7.5rem 0;
+  }
+}
+
+
