@@ -2,7 +2,7 @@
   <img class="image"
        mat-card-image 
        [lazyLoad]="article.imageUrl" 
-       [defaultImage]="'../../../../assets/img/lazy-image.jpg'"
+       [defaultImage]="'/assets/img/lazy-image.jpg'"
        [alt]="'Photo of' + article.title">
 
   <mat-card-content>
@@ -11,13 +11,16 @@
       <i [inlineSVG]="'calendar.svg'"></i>
       <span>{{ article.publishedAt | date }}</span>
     </div>
-    <h2 class="heading-2">{{ article.title }}</h2>
+    <h2 class="heading-2" [innerText]="article.title" 
+                          appHighlight 
+                          [fragment]="highlightedFragment">
+    </h2>
 
-    <p class="paragraph">
-      {{ article.summary }}
-    </p>
+    <p class="paragraph" [innerText]="article.summary" 
+                         appHighlight 
+                         [fragment]="highlightedFragment"></p>
 
-    <app-button class="button" [title]="'Read more'" [mode]="'right'"></app-button>
+    <app-button [title]="'Read more'" [mode]="'right'"></app-button>
     
   </mat-card-content>
 
