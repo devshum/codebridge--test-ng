@@ -21,9 +21,14 @@ export class HighlightDirective implements OnChanges {
     const newHtml = html.split(' ')
 
     newHtml.forEach(word => {
-      if(word.includes(fragment)) {
-        const index = newHtml.indexOf(fragment);
-        newHtml[index] = `<mark>${fragment}</mark>`
+      if(fragment) {
+        const newWord = word.toLowerCase();
+        const newFragment = fragment.toLowerCase();
+
+        if(newWord.includes(newFragment)) {
+          const index = newHtml.indexOf(newFragment);
+          newHtml[index] = `<mark>${newFragment}</mark>`
+        }
       }
     })
     
