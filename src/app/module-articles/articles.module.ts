@@ -11,6 +11,7 @@ import { CountComponent } from './count/count.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { LazyLoadImageModule } from 'ng-lazyload-image';
 import { HighlightDirective } from '../core/directives/highlight.directive';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 
 
@@ -29,7 +30,8 @@ import { HighlightDirective } from '../core/directives/highlight.directive';
     ButtonModule,
     SvgModule,
     ReactiveFormsModule,
-    LazyLoadImageModule
+    LazyLoadImageModule,
+    MatPaginatorModule
   ]
 })
 export class ArticlesModule { }

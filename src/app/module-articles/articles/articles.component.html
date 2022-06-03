@@ -2,7 +2,7 @@
   <app-form class="articles__form"
             (search)="onSearch($event)"></app-form>
 
-  <app-count class="articles__count"></app-count>
+  <app-count (count)="count = $event" class="articles__count"></app-count>
 
   <div class="articles__cards" *ngIf="articles$ | async as articles">
     <ng-container *ngIf="articles.length > 0; else noResults">
@@ -16,4 +16,12 @@
   <ng-template #noResults>
     no articles was found
   </ng-template>
+
+  <mat-paginator class="paginator"
+                 [length]="count"
+                 [pageSize]="limit"
+                 [pageSizeOptions]="[6, 10, 20]"
+                 (page)="paginate($event)"
+                 aria-label="Select page">
+  </mat-paginator>
 </section>

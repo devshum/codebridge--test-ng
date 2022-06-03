@@ -13,8 +13,11 @@ export class ArticlesComponent implements OnInit {
   public searchFragment: string;
   public articles$: Observable<Article[]>;
   public count: number;
-  private _limit = 6;
-  private _start = 1;
+  public pageSizeOptions = [6, 10, 20];
+  public limit = 6;
+  public start = 1;
+  public title: string;
+  public summary: string;
   constructor(
     private _articlesService: ArticlesDashboardService
   ) { }
@@ -23,21 +26,39 @@ export class ArticlesComponent implements OnInit {
     this.articles$ = this._articlesService
     .getArticles(
       { 
-        limit: this._limit, 
-        start: this._start 
+        limit: this.limit, 
+        start: this.start 
       },
     );
   }
 
   public onSearch(event: string): void {
     this.searchFragment = event;
+    this.title = event;
+    this.summary = event
+
     this.articles$ = this._articlesService
     .getArticles(
       { 
-        limit: this._limit, 
-        start: this._start,
-        title: event,
-        summary: event
+        limit: this.limit, 
+        start: this.start,
+        title: this.title,
+        summary: this.summary
+      },
+    );
+  }
+
+  public paginate(event: any) {
+    const limit = event.pageSize;
+    const start = event.pageSize * event.pageIndex + 1;
+
+    this.articles$ = this._articlesService
+    .getArticles(
+      { 
+        limit: limit, 
+        start: start,
+        title: this.title,
+        summary: this.summary
       },
     );
   }
