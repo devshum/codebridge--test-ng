@@ -1,23 +1,29 @@
-<section class="article" *ngIf="article$ | async as article">
+<section class="article" >
+  <ng-container *ngIf="article$ | async as article; else skeleton">
+    <div class="article__top">
+      <img class="article__img" [src]="article.imageUrl" [alt]="'Photo of' + article.title">
+      
+      <div class="article__container container">
+        <h2 class="heading-2">{{ article.title }}</h2>
+      </div>
+    </div>
 
-  <div class="article__top">
-    <img class="article__img" [src]="article.imageUrl" [alt]="'Photo of' + article.title">
+    <div class="container">
+      <div class="article__content">
+        <p>{{ article.summary }}</p>
+      </div>
     
-    <div class="article__container container">
-      <h2 class="heading-2">{{ article.title }}</h2>
+      <app-button class="article__btn"
+                  routerLink="/articles"
+                  [title]="'Back to homepage'" 
+                  [mode]="'left'">
+      </app-button>
     </div>
-  </div>
+  </ng-container>
 
-  <div class="container">
-    <div class="article__content">
-      <p>{{ article.summary }}</p>
-    </div>
-  
-    <app-button class="article__btn"
-                routerLink="/articles"
-                [title]="'Back to homepage'" 
-                [mode]="'left'">
-    </app-button>
-  </div>
+  <ng-template #skeleton>
+    <app-article-skeleton></app-article-skeleton>
+  </ng-template>
+
 </section>
 
