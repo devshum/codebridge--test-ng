@@ -1,4 +1,5 @@
 import { Component, OnInit, ChangeDetectionStrategy, Input } from '@angular/core';
+import { Router } from '@angular/router';
 import { Article } from 'src/app/core/interfaces/article.interface';
 
 @Component({
@@ -7,13 +8,15 @@ import { Article } from 'src/app/core/interfaces/article.interface';
   styleUrls: ['./card.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class CardComponent implements OnInit {
+export class CardComponent {
   @Input() article: Article;
   @Input() highlightedFragment: string;
   
-  constructor() { }
+  constructor(
+    private _router: Router
+  ) { }
 
-  ngOnInit(): void {
+  public openArticleDetails(id: number): void {
+    this._router.navigate(['articles', id]);
   }
-
 }
