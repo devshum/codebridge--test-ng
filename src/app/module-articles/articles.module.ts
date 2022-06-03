@@ -8,7 +8,9 @@ import { MatCardModule } from '@angular/material/card';
 import { ButtonModule } from '../module-button/button.module';
 import { SvgModule } from '../module-svg/svg.module';
 import { CountComponent } from './count/count.component';
-import { FormsModule }   from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
+import { LazyLoadImageModule } from 'ng-lazyload-image';
+import { HighlightDirective } from '../core/directives/highlight.directive';
 
 
 
@@ -17,7 +19,8 @@ import { FormsModule }   from '@angular/forms';
     ArticlesComponent,
     CardComponent,
     FormComponent,
-    CountComponent
+    CountComponent,
+    HighlightDirective
   ],
   imports: [
     CommonModule,
@@ -25,7 +28,8 @@ import { FormsModule }   from '@angular/forms';
     MatCardModule,
     ButtonModule,
     SvgModule,
-    FormsModule
+    ReactiveFormsModule,
+    LazyLoadImageModule
   ]
 })
 export class ArticlesModule { }

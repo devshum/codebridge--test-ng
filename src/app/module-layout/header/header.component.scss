@@ -8,4 +8,9 @@
   height: 8.2rem;
   background-color: styles.$gray-4;
   border-bottom: 0.2rem solid rgba(0, 0, 0, 0.06);
+
+  &__link {
+    display: inline-block;
+    transform: translateY(0.3rem);
+  }
 }

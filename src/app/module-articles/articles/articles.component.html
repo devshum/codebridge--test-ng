@@ -1,9 +1,19 @@
 <section class="articles">
-  <app-form class="articles__form"></app-form>
+  <app-form class="articles__form"
+            (search)="onSearch($event)"></app-form>
 
   <app-count class="articles__count"></app-count>
 
-  <div class="articles__cards">
-    <app-card *ngFor="let article of articles$ | async" [article]="article"></app-card>
+  <div class="articles__cards" *ngIf="articles$ | async as articles">
+    <ng-container *ngIf="articles.length > 0; else noResults">
+      <app-card [highlightedFragment]="searchFragment" 
+                *ngFor="let article of articles; trackBy: trackItem" 
+                [article]="article">
+      </app-card>
+    </ng-container>
   </div>
+
+  <ng-template #noResults>
+    no articles was found
+  </ng-template>
 </section>

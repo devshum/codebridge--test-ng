@@ -1,13 +1,12 @@
-<form #form="ngForm"
-      class="form" 
+<form class="form" 
       autocomplete="off"
-      (keyup)="submit(form)">
+      (keydown.enter)="$event.preventDefault()">
   <h4 class="form__title heading-4">Filter by keywords</h4>
 
   <div class="input">
     <i class="input__icon" [inlineSVG]="'glass.svg'"></i>
     <input class="input__field" 
-           ngModel 
+           [formControl]="searchInput" 
            name="search"
            type="text" 
            placeholder="Search...">
