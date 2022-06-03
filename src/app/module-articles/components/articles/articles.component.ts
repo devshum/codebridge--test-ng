@@ -19,18 +19,21 @@ export class ArticlesComponent implements OnInit {
   public start = 1;
   public title: string;
   public summary: string;
+  public loading = false;
+  public skeletons = [...Array(this.limit)];
   constructor(
     private _articlesService: ArticlesDashboardService
   ) { }
 
   ngOnInit(): void {
+    this.loading = true;
     this.articles$ = this._articlesService
       .getArticles(
         { 
           limit: this.limit, 
           start: this.start 
         },
-      );
+      )
   }
 
   public onSearch(event: string): void {
@@ -50,21 +53,25 @@ export class ArticlesComponent implements OnInit {
   }
 
   public paginate(event: Paginator): void {
-    const limit = event.pageSize;
-    const start = event.pageSize * event.pageIndex + 1;
+    this.limit = event.pageSize;
+    this.start = event.pageSize * event.pageIndex + 1;
 
     this.articles$ = this._articlesService
     .getArticles(
       { 
-        limit: limit, 
-        start: start,
+        limit: this.limit, 
+        start: this.start,
         title: this.title,
         summary: this.summary
       },
     );
   }
 
-  public trackItem(index: number, item: Article): number {
+  public trackArticle(index: number, item: Article): number {
+    return index;
+  }
+
+  public trackSkeleton(index: number, item: any): number {
     return index;
   }
 }

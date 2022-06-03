@@ -5,25 +5,31 @@
 
     <app-count (count)="count = $event" class="articles__count"></app-count>
 
-    <div class="articles__cards" *ngIf="articles$ | async as articles">
+    <div class="articles__cards" *ngIf="articles$ | async as articles; else loading">
       <ng-container *ngIf="articles.length > 0; else noResults">
         <app-card [highlightedFragment]="searchFragment" 
-                  *ngFor="let article of articles; trackBy: trackItem" 
+                  *ngFor="let article of articles; trackBy: trackArticle" 
                   [article]="article">
         </app-card>
       </ng-container>
     </div>
+
+    <ng-template #loading>
+      <div class="articles__cards">
+        <app-card-skeleton *ngFor="let skeleton of skeletons; trackBy: trackSkeleton" ></app-card-skeleton>
+      </div>
+    </ng-template>
 
     <ng-template #noResults>
       no articles was found
     </ng-template>
 
     <mat-paginator class="paginator"
-                  [length]="count"
-                  [pageSize]="limit"
-                  [pageSizeOptions]="[6, 10, 20]"
-                  (page)="paginate($event)"
-                  aria-label="Select page">
+                   [length]="count"
+                   [pageSize]="limit"
+                   [pageSizeOptions]="[6, 10, 20]"
+                   (page)="paginate($event)"
+                   aria-label="Select page">
     </mat-paginator>
   </div>
 </section>
