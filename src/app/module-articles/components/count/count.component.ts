@@ -1,4 +1,4 @@
-import { ArticlesDashboardService } from './../../core/services/articles-dashboard.service';
+import { ArticlesDashboardService } from 'src/app/core/services/articles-dashboard.service';
 import { Component, OnInit, ChangeDetectionStrategy, Input, Output, EventEmitter } from '@angular/core';
 import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
