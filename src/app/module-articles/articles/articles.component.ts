@@ -2,6 +2,7 @@ import { ArticlesDashboardService } from './../../core/services/articles-dashboa
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Article } from 'src/app/core/interfaces/article.interface';
+import { Paginator } from 'src/app/core/interfaces/paginator.interface';
 
 @Component({
   selector: 'app-articles',
@@ -24,12 +25,12 @@ export class ArticlesComponent implements OnInit {
 
   ngOnInit(): void {
     this.articles$ = this._articlesService
-    .getArticles(
-      { 
-        limit: this.limit, 
-        start: this.start 
-      },
-    );
+      .getArticles(
+        { 
+          limit: this.limit, 
+          start: this.start 
+        },
+      );
   }
 
   public onSearch(event: string): void {
@@ -48,7 +49,7 @@ export class ArticlesComponent implements OnInit {
     );
   }
 
-  public paginate(event: any) {
+  public paginate(event: Paginator): void {
     const limit = event.pageSize;
     const start = event.pageSize * event.pageIndex + 1;
 
