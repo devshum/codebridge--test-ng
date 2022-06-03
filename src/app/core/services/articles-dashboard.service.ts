@@ -2,6 +2,8 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Article } from '../interfaces/article.interface';
+import { ArticlesParams } from '../interfaces/articles-params.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +13,7 @@ export class ArticlesDashboardService {
 
   constructor(private _http: HttpClient) { }
 
-  public getArticles(query: any): Observable<any> {
+  public getArticles(query?: Partial<ArticlesParams>): Observable<Article[]> {
     const options = {
       params: new HttpParams()
       .set('_limit', query?.limit || '')
@@ -20,10 +22,10 @@ export class ArticlesDashboardService {
       .set('summary_contains', query?.summary || '')
     }
 
-    return this._http.get<any>(`${this._apiUrl}/articles`, options)
+    return this._http.get<Article[]>(`${this._apiUrl}/articles`, options)
   }
 
   public getCount(): Observable<number> {
-    return this._http.get<any>(`${this._apiUrl}/articles/count`)
+    return this._http.get<number>(`${this._apiUrl}/articles/count`)
   }
 }

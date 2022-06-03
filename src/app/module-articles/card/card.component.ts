@@ -1,4 +1,5 @@
 import { Component, OnInit, ChangeDetectionStrategy, Input } from '@angular/core';
+import { Article } from 'src/app/core/interfaces/article.interface';
 
 @Component({
   selector: 'app-card',
@@ -7,7 +8,7 @@ import { Component, OnInit, ChangeDetectionStrategy, Input } from '@angular/core
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CardComponent implements OnInit {
-  @Input() article: any;
+  @Input() article: Article;
   @Input() highlightedFragment: string;
   
   constructor() { }

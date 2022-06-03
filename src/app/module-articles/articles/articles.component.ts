@@ -1,6 +1,7 @@
 import { ArticlesDashboardService } from './../../core/services/articles-dashboard.service';
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Article } from 'src/app/core/interfaces/article.interface';
 
 @Component({
   selector: 'app-articles',
@@ -10,7 +11,7 @@ import { Observable } from 'rxjs';
 })
 export class ArticlesComponent implements OnInit {
   public searchFragment: string;
-  public articles$: Observable<any>;
+  public articles$: Observable<Article[]>;
   public count: number;
   private _limit = 6;
   private _start = 1;
@@ -41,8 +42,7 @@ export class ArticlesComponent implements OnInit {
     );
   }
 
-  public trackItem(index: number, item: any): number {
+  public trackItem(index: number, item: Article): number {
     return index;
   }
-
 }
