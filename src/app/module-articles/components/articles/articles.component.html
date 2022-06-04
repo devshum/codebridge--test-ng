@@ -24,7 +24,8 @@
       </div>
     </ng-template>
 
-    <mat-paginator class="articles__paginator paginator"
+    <mat-paginator *ngIf="count"
+                   class="articles__paginator paginator"
                    [length]="count"
                    [pageSize]="limit"
                    [pageSizeOptions]="[6, 10, 20]"
