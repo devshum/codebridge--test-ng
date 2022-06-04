@@ -3,7 +3,11 @@
 
 .card {
   &.mat-card {
+    display: flex;
+    flex-direction: column;
+
     overflow: hidden;
+    height: 100%;
 
     font-family: styles.$font-montserrat;
     border-radius: 0.5rem;
@@ -31,6 +35,10 @@
     }
 
     &-content {
+      display: flex;
+      flex-direction: column;
+
+      height: inherit;
       padding: 2.5rem;
       font-size: styles.$default-font-size;
       line-height: styles.$default-line-height;
@@ -44,6 +52,10 @@
         line-height: styles.$default-line-height;
 
         overflow: hidden;
+      }
+
+      .button {
+        margin-top: auto;
       }
     }
   }
