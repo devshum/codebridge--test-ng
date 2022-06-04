@@ -46,6 +46,10 @@
     border-bottom-right-radius: 0.5rem;
 
     @include mixins.card('no-border');
+    
+    @include mixins.respond('mobile') {
+      padding: 3.5rem;
+    }
   }
 
   &__title,
