@@ -1,5 +1,13 @@
+@use '../../../assets/styles/abstracts/mixins' as mixins;
+@use '../../../assets/styles/abstracts/variables' as styles;
+
 .container {
-  max-width: 129rem;
+  max-width: styles.$container;
   margin: 0 auto;
+  padding: 0 3.2rem;
   width: 100%;
+
+  @include mixins.respond('mobile') {
+    padding: 0 2.4rem;
+  }
 }
