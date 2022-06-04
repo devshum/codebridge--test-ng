@@ -1,9 +1,9 @@
-<h4 class="count heading-4" *ngIf="count$ | async as count; else skeleton">
+<h4 class="count heading-4" *ngIf="count; else skeleton">
   Results: {{ count }}
 </h4>
 
 <ng-template #skeleton>
   <h4 class="count heading-4">
-    Results: ...
+    Results: 0
   </h4>
 </ng-template>

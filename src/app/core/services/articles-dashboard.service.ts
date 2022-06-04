@@ -1,9 +1,11 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { forkJoin, Observable } from 'rxjs';
 import { Article } from '../interfaces/article.interface';
 import { ArticlesParams } from '../interfaces/articles-params.interface';
+import { map } from 'rxjs/operators';
+import { ArticlesResponse } from '../interfaces/articles-response.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +15,7 @@ export class ArticlesDashboardService {
 
   constructor(private _http: HttpClient) { }
 
-  public getArticles(query?: Partial<ArticlesParams>): Observable<Article[]> {
+  public getArticles(query?: Partial<ArticlesParams>): Observable<ArticlesResponse> {
     const options = {
       params: new HttpParams()
       .set('_limit', query?.limit || '')
@@ -22,11 +24,17 @@ export class ArticlesDashboardService {
       .set('summary_contains', query?.summary || '')
     }
 
-    return this._http.get<Article[]>(`${this._apiUrl}/articles`, options)
-  }
+    const articles = this._http.get<Article[]>(`${this._apiUrl}/articles`, options);
+    const count = this._http.get<number>(`${this._apiUrl}/articles/count`, options);
 
-  public getCount(): Observable<number> {
-    return this._http.get<number>(`${this._apiUrl}/articles/count`)
+    return forkJoin(
+      {
+        articles,
+        count
+      }
+    ).pipe(
+      map((resp: ArticlesResponse) => resp)
+    );
   }
 
   public getArticle(id: string): Observable<Article> {

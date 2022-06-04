@@ -8,7 +8,8 @@ const routes: Routes = [
     redirectTo: 'articles'
   },
   { path: 'articles', loadChildren: () => import('./module-articles/articles.module').then(m => m.ArticlesModule) },
-  { path: 'articles/:id', loadChildren: () => import('./module-article-details/article-details.module').then(m => m.ArticleDetailsModule) }
+  { path: 'articles/:id', loadChildren: () => import('./module-article-details/article-details.module').then(m => m.ArticleDetailsModule) },
+  { path: '**', redirectTo: 'articles' }
 ];
 
 @NgModule({

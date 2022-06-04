@@ -18,21 +18,12 @@ export class HighlightDirective implements OnChanges {
   }
 
   private _highlightSelectedText(html: string, fragment: string): string {
-    const newHtml = html.split(' ')
 
-    newHtml.forEach(word => {
-      if(fragment) {
-        const newWord = word.toLowerCase();
-        const newFragment = fragment.toLowerCase();
-
-        if(newWord.includes(newFragment)) {
-          const index = newHtml.indexOf(newFragment);
-          newHtml[index] = `<mark>${newFragment}</mark>`
-        }
-      }
-    })
-    
-    return newHtml.join(' '); 
+    if (fragment) {
+      const regexp = new RegExp("(" + fragment.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ")", 'gmi');
+      html = html.replace(regexp, '<mark>$1</mark>');
+    }
+    return html;
   };
 
 }
