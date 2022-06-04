@@ -47,7 +47,7 @@
 
     @include mixins.card('no-border');
     
-    @include mixins.respond('mobile') {
+    @include mixins.respond('tablet') {
       padding: 3.5rem;
     }
   }
