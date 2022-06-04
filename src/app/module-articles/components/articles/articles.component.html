@@ -3,7 +3,7 @@
     <app-form class="articles__form"
             (search)="onSearch($event)"></app-form>
 
-    <app-count (count)="count = $event" class="articles__count"></app-count>
+    <app-count [count]="count" class="articles__count"></app-count>
 
     <div class="articles__cards" *ngIf="articles$ | async as articles; else skeleton">
       <ng-container *ngIf="articles.length > 0; else noResults">
