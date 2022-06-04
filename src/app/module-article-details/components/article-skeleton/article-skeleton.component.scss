@@ -1,15 +1,15 @@
 @use '../../../../assets/styles/abstracts/variables' as styles;
-@use '../../../../assets/styles/abstracts/mixins.scss' as mixins;
+@use '../../../../assets/styles/abstracts/mixins' as mixins;
 
 :host {
   display: block;
+  height: 100%;
 }
 
 .article-skeleton {
   &__top {
     display: grid;
   }
-
   &__img {
     width: 100%;
     background-color: rgba(0, 0, 0, 0.3);
@@ -18,42 +18,54 @@
   }
 
   &__img,
-  &__container {
+  &__title {
     grid-row: 1;
     grid-column: 1 / -1;
   }
 
-  &__container {
+
+  &__title {
     display: flex;
     justify-content: center;
-
     align-self: end;
-    background-color: styles.$white;
-    padding: 3.5rem 0;
+    justify-self: center;
     text-align: center;
     border-top-left-radius: 0.5rem;
     border-top-right-radius: 0.5rem;
 
-    border: 0.1rem solid styles.$gray-3;
-    border-bottom: unset;
+    background-color: styles.$white;
     z-index: 1;
+  
+    border-bottom: unset;
+    padding: 3.5rem;
+    margin-top: 3.2rem;
 
-    .heading-2 {
+    h2 {
       background-color: rgba(0, 0, 0, 0.3);
       animation: skeleton 1s 0.5s infinite alternate;
       width: 70%;
     }
-
   }
 
-  &__content {
-    padding: 5rem 7.5rem;
+  &__title,
+  &__summary {
+    width: calc(100% - 6.4rem);
+    max-width: styles.$container;
+  }
+
+  
+  &__summary {
+    padding: 1.6rem 7.5rem 5rem;
     border: 0.1rem solid styles.$gray-3;
     border-top: unset;
     border-bottom-left-radius: 0.5rem;
     border-bottom-right-radius: 0.5rem;
 
     @include mixins.card('no-border');
+    
+    @include mixins.respond('tablet') {
+      padding: 3.5rem;
+    }
 
     p {
       background-color: rgba(0, 0, 0, 0.3);
@@ -65,13 +77,6 @@
       }
     }
   }
-
-  &__btn {
-    display: block;
-    width: 20%;
-    height: 2rem;
-    margin: 3.5rem 7.5rem 0;
-    background-color: rgba(0, 0, 0, 0.3);
-    animation: skeleton 1s 0.5s infinite alternate;
-  }
+  
 }
+

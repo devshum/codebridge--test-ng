@@ -3,7 +3,8 @@
        mat-card-image 
        [lazyLoad]="article.imageUrl" 
        [defaultImage]="'/assets/img/lazy-image.jpg'"
-       [alt]="'Photo of' + article.title">
+       [alt]="'Photo of' + article.title"
+       (click)="openArticleDetails(article.id)">
 
   <mat-card-content>
 
@@ -13,7 +14,8 @@
     </div>
     <h2 class="heading-2" [innerText]="article.title" 
                           appHighlight 
-                          [fragment]="highlightedFragment">
+                          [fragment]="highlightedFragment"
+                          (click)="openArticleDetails(article.id, $event)">
     </h2>
 
     <p class="paragraph" [innerText]="article.summary" 

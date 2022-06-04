@@ -15,7 +15,7 @@
 
     <div class="article__button container">
       <app-button class="article__btn"
-                  routerLink="/articles"
+                  (click)="goHome()"
                   [title]="'Back to homepage'" 
                   [mode]="'left'">
       </app-button>
