@@ -5,7 +5,7 @@ import { forkJoin, Observable } from 'rxjs';
 import { Article } from '../interfaces/article.interface';
 import { ArticlesParams } from '../interfaces/articles-params.interface';
 import { map } from 'rxjs/operators';
-import { ArticlesResponse } from '../interfaces/articles-response.interface';
+import { ArticlesResponse } from './../interfaces/articles-response.interface';
 
 @Injectable({
   providedIn: 'root'

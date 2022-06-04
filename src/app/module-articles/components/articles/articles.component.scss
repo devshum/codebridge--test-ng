@@ -1,3 +1,6 @@
+@use '../../../../assets/styles/abstracts/mixins' as mixins;
+
+
 :host {
   display: block;
   height: 100%;
@@ -6,6 +9,14 @@
 .articles {
   padding: 5rem 0 6.3rem;
   height: 100%;
+
+  @include mixins.respond('laptop') {
+    padding: 5rem 0 3.2rem;
+  }
+  
+  @include mixins.respond('mobile') {
+    margin-bottom: 2.4rem;
+  }
 
   & > * {
     height: 100%;
@@ -22,6 +33,18 @@
     gap: 4.5rem;
 
     margin-bottom: 5.4rem;
+
+    @include mixins.respond('laptop') {
+      grid-template-columns: repeat(2, 1fr);
+      margin-bottom: 3.2rem;
+      gap: 3.2rem;
+    }
+
+    @include mixins.respond('mobile') {
+      grid-template-columns: 1fr;
+      margin-bottom: unset;
+      gap: 2.4rem;
+    }
   }
 
   &__form {

@@ -7,3 +7,18 @@
 
   box-shadow: 0 0.8rem 2.4rem rgb(0 0 0 / 5%);
 }
+
+// 1em = 16px
+@mixin respond($breakpoint) {
+  @if $breakpoint == 'laptop' {
+    @media only screen and (max-width: 73.75em) { @content; } 
+  }
+
+  @if $breakpoint == 'tablet' {
+    @media only screen and (max-width: 55.31em) { @content; }  
+  }
+
+  @if $breakpoint == 'mobile' {
+    @media only screen and (max-width: 39.06em) { @content; }  
+  }
+}

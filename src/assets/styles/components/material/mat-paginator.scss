@@ -9,8 +9,14 @@
       font-size: inherit;
     }
 
-    .mat-paginator-page-size-label {
-      margin: 0 1.6rem;
+    .mat-paginator {
+      &-page-size-label {
+        margin: 0 1.6rem;
+      }
+
+      &-container {
+        justify-content: center;
+      }
     }
   }
 }

@@ -1,4 +1,4 @@
-<mat-card class="card" (click)="openArticleDetails(article.id)">
+<mat-card class="card">
   <img class="image"
        mat-card-image 
        [lazyLoad]="article.imageUrl" 
@@ -22,7 +22,8 @@
 
     <app-button class="button" 
                 [title]="'Read more'" 
-                [mode]="'right'">
+                [mode]="'right'"
+                (click)="openArticleDetails(article.id)">
     </app-button>
     
   </mat-card-content>

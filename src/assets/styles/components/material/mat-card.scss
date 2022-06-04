@@ -3,8 +3,8 @@
 
 .card {
   &.mat-card {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-rows: 21.7rem;
 
     overflow: hidden;
     height: 100%;
@@ -18,13 +18,16 @@
     &:not([class*=mat-elevation-z]) {
       @include mixins.card('border');
     }
+
+    @include mixins.respond('mobile') {
+      grid-template-rows: 28rem;
+    }
   }
 
   .mat-card {
     &-image {
       display: block;
       width: 100%;
-      height: 21.7rem;
       margin: unset;
       object-fit: cover;
 
