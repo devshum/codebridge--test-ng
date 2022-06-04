@@ -12,7 +12,6 @@
     font-family: styles.$font-montserrat;
     border-radius: 0.5rem;
     padding: unset;
-    cursor: pointer;
     transition: styles.$transition;
 
     &:not([class*=mat-elevation-z]) {
@@ -30,6 +29,7 @@
       width: 100%;
       margin: unset;
       object-fit: cover;
+      cursor: pointer;
 
 
       &:first-child {
@@ -45,6 +45,11 @@
       padding: 2.5rem;
       font-size: styles.$default-font-size;
       line-height: styles.$default-line-height;
+
+      .heading-2,
+      .button {
+        cursor: pointer;
+      }
 
       .heading-2 {
         margin-bottom: 2rem;

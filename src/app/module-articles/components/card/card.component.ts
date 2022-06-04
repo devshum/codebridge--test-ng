@@ -16,7 +16,17 @@ export class CardComponent {
     private _router: Router
   ) { }
 
-  public openArticleDetails(id: number): void {
+  public openArticleDetails(id: number, event?: any): void {
+    if (event && !event.view.getSelection().toString().length) {
+      this._navigateArticles(id);
+    }
+
+    if(!event) {
+      this._navigateArticles(id);
+    }
+  }
+
+  private _navigateArticles(id: number): void {
     this._router.navigate(['articles', id]);
   }
 }
